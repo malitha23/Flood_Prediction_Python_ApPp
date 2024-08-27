@@ -1,0 +1,5 @@
+# Ignore the virtual environment directory
+flood_prob/
+
+# Ignore the node_modules directory
+node_modules/

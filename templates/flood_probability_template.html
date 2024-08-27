@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Flood Prediction</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css') }}">
+  </head>
+
+  <body>
+    <div class="container-fluid h-100 d-flex justify-content-center align-items-center w-100 overflow-y-clip p-0">
+      <div class="row mx-0 w-100">
+        <div class="col-12 ">
+          <h1 class="mainHeading w-100 text-center">Flood Sense</h1>
+          <p class="text-secondary text-center fs-3 p-0 m-0">Stay Ahead of Rising Waters</p>
+      </div>
+
+        <form action="/predict" method="post" class="row mx-0 d-flex align-items-center justify-content-around" id="predictionForm">
+          <div class="form-group col-3 my-2">
+            <label class="my-1" for="MonsoonIntensity">Monsoon Intensity</label>
+            <input name="MonsoonIntensity" type="text" class="form-control border-top-0 border-start-0 border-end-0 rounded-0 p-2" id="MonsoonIntensity">
+          </div>
+          <div class="form-group col-3 my-2">
+            <label class="my-1" for="TopographyDrainage">Topography Drainage</label>
+            <input name="TopographyDrainage" type="text" class="form-control border-top-0 border-start-0 border-end-0 rounded-0 p-2" id="TopographyDrainage">
+          </div>
+          <div class="form-group col-3 my-2">
+            <label class="my-1" for="RiverManagement">River Management</label>
+            <input name="RiverManagement" type="text" class="form-control border-top-0 border-start-0 border-end-0 rounded-0 p-2" id="RiverManagement">
+          </div>
+          <div class="form-group col-3 my-2">
+            <label class="my-1" for="Deforestation">De Forestation</label>
+            <input name="Deforestation" type="text" class="form-control border-top-0 border-start-0 border-end-0 rounded-0 p-2" id="Deforestation">
+          </div>
+          <div class="form-group col-3 my-2">
+            <label class="my-1" for="Urbanization">Urbanization</label>
+            <input name="Urbanization" type="text" class="form-control border-top-0 border-start-0 border-end-0 rounded-0 p-2" id="Urbanization">
+          </div>
+          <div class="form-group col-3 my-2">
+            <label class="my-1" for="ClimateChange">Climate Change</label>
+            <input name="ClimateChange" type="text" class="form-control border-top-0 border-start-0 border-end-0 rounded-0 p-2" id="ClimateChange">
+          </div>
+          <div class="form-group col-3 my-2">
+            <label class="my-1" for="DamsQuality">Dams Quality</label>
+            <input name="DamsQuality" type="text" class="form-control border-top-0 border-start-0 border-end-0 rounded-0 p-2" id="DamsQuality">
+          </div>
+          <div class="form-group col-3 my-2">
+            <label class="my-1" for="Siltation">Siltation</label>
+            <input name="Siltation" type="text" class="form-control border-top-0 border-start-0 border-end-0 rounded-0 p-2" id="Siltation">
+          </div>
+          <div class="form-group col-3 my-2">
+            <label class="my-1" for="AgriculturalPractices">Agricultural Practices</label>
+            <input name="AgriculturalPractices" type="text" class="form-control border-top-0 border-start-0 border-end-0 rounded-0 p-2" id="AgriculturalPractices">
+          </div>
+          <div class="form-group col-3 my-2">
+            <label class="my-1" for="Encroachments">Encroachments</label>
+            <input name="Encroachments" type="text" class="form-control border-top-0 border-start-0 border-end-0 rounded-0 p-2" id="Encroachments">
+          </div>
+          <div class="form-group col-3 my-2">
+            <label class="my-1" for="IneffectiveDisasterPreparedness">Ineffective Disaster Preparedness</label>
+            <input name="IneffectiveDisasterPreparedness" type="text" class="form-control border-top-0 border-start-0 border-end-0 rounded-0 p-2" id="IneffectiveDisasterPreparedness">
+          </div>
+          <div class="form-group col-3 my-2">
+            <label class="my-1" for="DrainageSystems">Drainage Systems</label>
+            <input name="DrainageSystems" type="text" class="form-control border-top-0 border-start-0 border-end-0 rounded-0 p-2" id="DrainageSystems">
+          </div>
+          <div class="form-group col-3 my-2">
+            <label class="my-1" for="CoastalVulnerability">Coastal Vulnerability</label>
+            <input name="CoastalVulnerability" type="text" class="form-control border-top-0 border-start-0 border-end-0 rounded-0 p-2" id="CoastalVulnerability">
+          </div>
+          <div class="form-group col-3 my-2">
+            <label class="my-1" for="Landslides">Landslides</label>
+            <input name="Landslides" type="text" class="form-control border-top-0 border-start-0 border-end-0 rounded-0 p-2" id="Landslides">
+          </div>
+          <div class="form-group col-3 my-2">
+            <label class="my-1" for="Watersheds">Watersheds</label>
+            <input name="Watersheds" type="text" class="form-control border-top-0 border-start-0 border-end-0 rounded-0 p-2" id="Watersheds">
+          </div>
+          <div class="form-group col-3 my-2">
+            <label class="my-1" for="DeterioratingInfrastructure">Deteriorating Infrastructure</label>
+            <input name="DeterioratingInfrastructure" type="text" class="form-control border-top-0 border-start-0 border-end-0 rounded-0 p-2" id="DeterioratingInfrastructure">
+          </div>
+          <div class="form-group col-3 my-2">
+            <label class="my-1" for="PopulationScore">Population Score</label>
+            <input name="PopulationScore" type="text" class="form-control border-top-0 border-start-0 border-end-0 rounded-0 p-2" id="PopulationScore">
+          </div>
+          <div class="form-group col-3 my-2">
+            <label class="my-1" for="WetlandLoss">Wetland Loss</label>
+            <input name="WetlandLoss" type="text" class="form-control border-top-0 border-start-0 border-end-0 rounded-0 p-2" id="WetlandLoss">
+          </div>
+          <div class="form-group col-3 my-2">
+            <label class="my-1" for="InadequatePlanning">Inadequate Planning</label>
+            <input name="InadequatePlanning" type="text" class="form-control border-top-0 border-start-0 border-end-0 rounded-0 p-2" id="InadequatePlanning">
+          </div>
+          <div class="form-group col-3 my-2">
+            <label class="my-1" for="PoliticalFactors">Political Factors</label>
+            <input name="PoliticalFactors" type="text" class="form-control border-top-0 border-start-0 border-end-0 rounded-0 p-2" id="PoliticalFactors">
+          </div>
+          <div class="col-12 my-2 d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary mt-1 w-25 text-capitalize p-1 fs-4">Predict Probability</button>
+          </div>
+        </form>
+        <div class="w-100 text-center fw-bold fs-2">{{pred}}<div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    {% if alert_message %}
+        <script>
+            alert("{{ alert_message }}");
+            // {% if reset_form %}
+            //     // Reset the form if reset_form is True
+            //     document.getElementById('predictionForm').reset();
+            // {% endif %}
+            var form = document.getElementById("predictionForm");
+        </script>
+    {% endif %}
+  </body>
+</html>

@@ -1,0 +1,12 @@
+.mainHeading{
+  font-size: 60px !important;
+  color: #1E90FF !important;
+}
+
+label{
+  color: rgb(158, 158, 158) !important;
+}
+
+input{
+  border-bottom: 1px solid rgb(158, 158, 158) !important;
+}
