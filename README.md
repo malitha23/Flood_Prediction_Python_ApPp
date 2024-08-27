@@ -14,7 +14,6 @@ This project aims to predict the probability of floods in various regions using 
 - **Libraries and Frameworks**: TensorFlow, Keras, Flask, NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn
 - **Tools**: Jupyter Notebook, Visual Studio Code, Git
 
-
 ## Getting Started
 
 ### Prerequisites
@@ -35,6 +34,13 @@ Copy code
 python -m venv venv
 source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 Install required packages:
+
+If you don't have a requirements.txt file, you can generate it using:
+
+bash
+Copy code
+pip freeze > requirements.txt
+Then install the packages using:
 
 bash
 Copy code
